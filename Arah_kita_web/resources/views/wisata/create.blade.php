@@ -9,10 +9,11 @@
                 
                 <div class="card border-0 mt-5 p-4" >
                     <form method="POST" action="{{ url ('wisata') }} " >
-                        @csrf
-                        
+                       
+                    
+                              @csrf
                                 <div class="form-group mb-3">
-                                    <label for="nim">Nama Wisata</label>
+                                    <label for="nama_wisata">Nama Wisata</label>
                                     <input type="text" name="nama_wisata" class="form-control" id="nama_wisata" placeholder="Masukan Nama Wisata" required>
                                 </div>
         
