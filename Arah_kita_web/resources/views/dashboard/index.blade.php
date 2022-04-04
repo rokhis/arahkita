@@ -1,9 +1,11 @@
-@extends('layout.app')
-@section('title', 'Arah Kita | Login')
+@extends('layout.app',[
+'namePage' => 'Dashboard',
+])
+@section('title', 'Arah Kita | Dashboard')
 @section('content')
 
-<div class="panel-header panel-header-lg">
-    <canvas id="bigDashboardChart"></canvas>
-</div>
+    <div class="panel-header panel-header-lg">
+        <canvas id="bigDashboardChart"></canvas>
+    </div>
 
 @endsection

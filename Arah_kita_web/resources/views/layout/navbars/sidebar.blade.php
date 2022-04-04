@@ -12,7 +12,7 @@
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
       <ul class="nav">
-        <li class="active ">
+        <li class=" {{ Request::is('dashboard') ? 'active' :'' }}">
           <a href="/dashboard">
             <i class="now-ui-icons design_app"></i>
             <p>Dashboard</p>
@@ -22,9 +22,9 @@
           <ul class="nav">
           <li class="">
           <a data-toggle="collapse" href="#laravelExamples">
-              <i class="fab fa-laravel"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
             <p>
-              Data
+              Tabel List
               <b class="caret"></b>
             </p>
           </a>
@@ -32,7 +32,7 @@
           </ul>
           <div class="collapse show" id="laravelExamples">
             <ul class="nav">
-              <li class="">
+              <li class="{{ Request::is('wisata') ? 'active' :'' }}">
                 <a href="/wisata">
                   <i class="now-ui-icons users_single-02"></i>
                   <p> Data Wisata </p>
