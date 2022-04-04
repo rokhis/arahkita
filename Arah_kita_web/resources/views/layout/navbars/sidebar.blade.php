@@ -1,8 +1,10 @@
 <div class="sidebar" data-color="blue">
      
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-        AK
+      <a class="simple-text logo-mini">
+        <div class="logo-image-small">
+          <img src="/assets/img/akbaru.png">
+        </div>
       </a>
       <a href="http://www.creative-tim.com" class="simple-text logo-normal">
         Arah Kita
