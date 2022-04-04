@@ -4206,10 +4206,10 @@ Created using IcoMoon - icomoon.io
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #141E30;
+  background: #023c3e;
   /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#023c3e), color-stop(60%, #044d4f), to(#06686c));
+  background: linear-gradient(to right, #023c3e 0%, #044d4f 60%, #06686c 100%);
   position: relative;
   overflow: hidden;
 }

@@ -13,17 +13,34 @@
     <div class="sidebar-wrapper" id="sidebar-wrapper">
       <ul class="nav">
         <li class="active ">
-          <a href="./dashboard.html">
+          <a href="/dashboard">
             <i class="now-ui-icons design_app"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li>
-          <a href="./icons.html">
-            <i class="now-ui-icons education_atom"></i>
-            <p>Icons</p>
+          <ul class="nav">
+          <li class="">
+          <a data-toggle="collapse" href="#laravelExamples">
+              <i class="fab fa-laravel"></i>
+            <p>
+              Data
+              <b class="caret"></b>
+            </p>
           </a>
-        </li>
+          </li>
+          </ul>
+          <div class="collapse show" id="laravelExamples">
+            <ul class="nav">
+              <li class="">
+                <a href="/wisata">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p> Data Wisata </p>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
         <li>
           <a href="./map.html">
             <i class="now-ui-icons location_map-big"></i>
@@ -52,12 +69,6 @@
           <a href="./typography.html">
             <i class="now-ui-icons text_caps-small"></i>
             <p>Typography</p>
-          </a>
-        </li>
-        <li class="active-pro">
-          <a href="./upgrade.html">
-            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-            <p>Upgrade to PRO</p>
           </a>
         </li>
       </ul>

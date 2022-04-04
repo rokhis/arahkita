@@ -30,9 +30,6 @@
       <!-- Navbar -->
       @include('layout.navbars.navbar')
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-        <canvas id="bigDashboardChart"></canvas>
-      </div>
 
       {{-- content --}}
       @yield('content')
