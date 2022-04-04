@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/assets/img/akbaru.png">
+    <link rel="icon" type="image/png" href="/assets/img/akbaru2.png">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
 
     

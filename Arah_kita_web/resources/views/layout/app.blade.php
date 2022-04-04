@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="/assets/img/akbaru.png">
+  <link rel="icon" type="image/png" href="/assets/img/akbaru2.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Arah Kita | Dashboard
