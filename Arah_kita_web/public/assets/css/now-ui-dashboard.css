@@ -560,7 +560,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color: #007074;
   color: #FFFFFF;
 }
 
@@ -575,10 +575,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-  background-color: #fa7a50;
+  background-color: #007074;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #fa7a50;
+  border-color: #007074;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
@@ -1041,8 +1041,8 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .btn-outline-primary {
-  color: #f96332;
-  border-color: #f96332;
+  color: #007074;
+  border-color: #007074;
 }
 
 .btn-outline-primary:hover,
@@ -1145,8 +1145,8 @@ fieldset[disabled] .btn-neutral.active {
 .show>.btn-outline-danger.dropdown-toggle:focus,
 .show>.btn-outline-danger.dropdown-toggle:hover {
   background-color: transparent;
-  color: #ff5555;
-  border-color: #ff5555;
+  color: #007074;
+  border-color: #007074;
   box-shadow: none;
 }
 
@@ -1339,7 +1339,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control:focus {
-  border: 1px solid #f96332;
+  border: 1px solid #007074;
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0 !important;
@@ -1350,7 +1350,7 @@ fieldset[disabled] .btn-link.active {
 .form-control:focus~.input-group-append .input-group-text,
 .form-control:focus+.input-group-prepend .input-group-text,
 .form-control:focus~.input-group-prepend .input-group-text {
-  border: 1px solid #f96332;
+  border: 1px solid #007074;
   border-left: none;
   background-color: transparent;
 }

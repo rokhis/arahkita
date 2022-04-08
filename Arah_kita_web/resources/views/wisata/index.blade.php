@@ -36,14 +36,15 @@
                                             </td>
                                             <td class="text-right">
                                                 <a href="{{ url('wisata/' . $wst->id . '/edit') }}"><button
-                                                        class="btn-success border-0">EDIT</button></a>
+                                                        class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
                                                 <form action="{{ url('wisata/' . $wst->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn-danger border-0 "
+                                                    <button type="submit"
+                                                        class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
                                                         onclick="return confirm ('Yakin untuk mengahapus ?')">
-                                                        HAPUS<span data-feather="x-circle"></span></button>
+                                                        <span data-feather="x-circle"></span></button>
                                                 </form>
                                             </td>
                                         </tr>
