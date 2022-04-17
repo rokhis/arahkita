@@ -38,28 +38,24 @@ class WisataController extends Controller
 
 
     {
-        $wisata = new Wisata();
-        $wisata->nama_wisata = $request->nama_wisata;
-        $wisata->kategori = $request->kategori;
-        $wisata->lokasi = $request->lokasi;
-        $wisata->harga_tiket = $request->harga_tiket;
-        $wisata->save();
+        // $wisata = new Wisata();
+        // $wisata->nama_wisata = $request->nama_wisata;
+        // $wisata->kategori = $request->kategori;
+        // $wisata->lokasi = $request->lokasi;
+        // $wisata->harga_tiket = $request->harga_tiket;
+        // $wisata->save();
+        // return redirect()->route('wisata.index');
+        $validate = $request->validate([
+            'nama_wisata' => 'required|max:255|unique:wisatas',
+            'kategori' => 'required',
+            'lokasi' => 'required',
+            'harga_tiket' => 'required'
+
+        ]);
+
+        Wisata::create($validate);
 
         return redirect()->route('wisata.index');
-        // $wisata = $request->validate([
-        //     'nama_wista' => 'required|max:255|unique:wisatas',
-        //     'kategori' => 'required',
-        //     'lokasi' => 'required',
-        //     'harga_tiket' => 'required'
-
-        // ]);
-
-
-        // Wisata::create($wisata);
-
-        // $request->session()->flash('success', 'Data Berhasil Ditambahkan');
-
-        // return redirect('/wisata');
     }
 
     /**
@@ -114,6 +110,6 @@ class WisataController extends Controller
     {
         $wisata = Wisata::find($id);
         $wisata->delete();
-        return redirect('wisata');
+        return redirect('/wisata');
     }
 }

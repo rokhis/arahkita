@@ -1,47 +1,92 @@
-@extends('layout.main')
-@section('title', 'Arah Kita | tambah wisata')
-@section('container')
-<div class="container">
-    <div class="row ">
-        <div class="col">
-            <div class="card mt-5">
+@extends('layout.app',[
+'namePage' => 'Data Wisata' ,
+])
+@section('title', 'Arah Kita | edit wisata')
+@section('content')
+    <div class="panel-header panel-header-sm">
+    </div>
 
-                
-                <div class="card border-0 mt-5 p-4" >
-                    <form method="POST" action="{{ url ('wisata') }} " >
-                       
-                    
-                              @csrf
-                                <div class="form-group mb-3">
-                                    <label for="nama_wisata">Nama Wisata</label>
-                                    <input type="text" name="nama_wisata" class="form-control" id="nama_wisata" placeholder="Masukan Nama Wisata" required>
+    <div class="content">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">Tambah Wisata</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ '/wisata' }}" method="POST">
+
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label for="nama_wisata">Nama Wisata</label>
+                                        <input type="text" name="nama_wisata"
+                                            class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata"
+                                            placeholder="Masukan Nama Wisata" value="{{ old('nama_wisata') }}" required>
+                                        @error('nama_wisata')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
-        
-                                <div class="form-group mb-3">
-                                    <label for="kategori" class="mb-1">Kategori</label>
-                                    <select name="kategori" class="form-control">
-                                        
-                                        <option value="Gunung">Gunung</option>
-                                        <option value="Pantai">Pantai</option>
-                                        
-                                    </select>
+                                <div class="col-md-4 pr-1">
+                                    <div class="form-group">
+                                        <label for="kategori" class="">Kategori</label>
+                                        <select name="kategori" class="form-control">
+                                            <option value="Gunung">Gunung</option>
+                                            <option value="Pantai">Pantai</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                
-                                <div class="form-group mb-3">
-                                    <label for="nama" class="mb-1">Lokasi</label>
-                                    <input type="text" name="lokasi" class="form-control" id="lokasi" placeholder="Masukan Lokasi" required>
+                            </div>
+                            <div class="row">
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group ">
+                                        <label for="nama" class="">Lokasi</label>
+                                        <input type="text" name="lokasi"
+                                            class="form-control  @error('lokasi') is-invalid @enderror" id="lokasi"
+                                            placeholder="Masukan Lokasi" value="{{ old('lokasi') }}" required>
+                                        @error('lokasi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label for="harga_tiket" class="">Harga Tiket</label>
+                                        <input type="text" name="harga_tiket"
+                                            class="form-control  @error('harga_tiket') is-invalid @enderror"
+                                            id="harga_tiket" placeholder="Masukan Harga Tiket"
+                                            value="{{ old('harga_tiket') }}" required>
+                                        @error('harga_tiket')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="harga_tiket" class="mb-1">Harga Tiket</label>
-                                    <input type="text" name="harga_tiket" class="form-control" id="harga_tiket" placeholder="Masukan Harga Tiket" required>
-        
-                                </div>
-                                <button type="submit" class="btn btn-primary ">Simpan</button>
-                    </form>
-            
+                                {{-- <div class="col-md-4 pr-1">
+                                    <label for="formFile" class="form-label">Gambar Wisata</label>
+                                    <div class=" form-control">
+                                        <input class="col mb-2 mt-2" type="file" id="formFile">
+                                        <input class="col mb-2" type="file" id="formFile">
+                                        <input class="col mb-2" type="file" id="formFile">
+                                    </div>
+                                </div> --}}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-5 ">Tambahkan</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

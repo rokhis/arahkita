@@ -11,7 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"> Data Wisata</h4>
+                        <a href="{{ url('wisata/create') }}"><button class="btn btn-primary border-0 p-2"> Tambah
+                                Wisata</button></a>
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">

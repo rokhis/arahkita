@@ -5,7 +5,6 @@
 @section('content')
     <div class="panel-header panel-header-sm">
     </div>
-
     <div class="content">
         <div class="row">
             <div class="col-md-8">
@@ -15,6 +14,7 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ url('wisata/' . $wst->id) }}">
+
                             @csrf
                             <input type="hidden" name="_method" value="PATCH">
                             <div class="row">

@@ -27,4 +27,4 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::resource('wisata', WisataController::class)->middleware('auth');
+Route::resource('/wisata', WisataController::class)->middleware('auth');

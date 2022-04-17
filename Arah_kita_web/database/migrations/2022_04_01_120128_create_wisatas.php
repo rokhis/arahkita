@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('kategori');
             $table->string('lokasi');
             $table->string('harga_tiket');
+
             $table->timestamps();
         });
     }
