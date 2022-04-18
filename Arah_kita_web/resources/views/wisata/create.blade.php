@@ -14,7 +14,7 @@
                         <h5 class="title">Tambah Wisata</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ '/wisata' }}" method="POST">
+                        <form action="{{ '/wisata' }}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             <div class="row">
@@ -41,10 +41,22 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
-
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group ">
+                                        <label for="nama" class="">Deskripsi</label>
+                                        <input type="text" name="deskripsi"
+                                            class="form-control  @error('deskripsi') is-invalid @enderror" id="lokasi"
+                                            placeholder="Masukan Lokasi" value="{{ old('deskripsi') }}" required>
+                                        @error('deskripsi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group ">
@@ -72,14 +84,34 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-4 pr-1">
+                                <div class="col-md-4 pr-1">
                                     <label for="formFile" class="form-label">Gambar Wisata</label>
                                     <div class=" form-control">
-                                        <input class="col mb-2 mt-2" type="file" id="formFile">
-                                        <input class="col mb-2" type="file" id="formFile">
-                                        <input class="col mb-2" type="file" id="formFile">
+                                        <input class="col mb-2 mt-2  @error('gambar_1') is-invalid @enderror"
+                                            name="gambar_1" type="file" id="formFile">
+                                        @error('gambar_1')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+
+                                        <input class="col mb-2  @error('gambar_2') is-invalid @enderror" name="gambar_2"
+                                            type="file" id="formFile">
+                                        @error('gambar_2')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+
+                                        <input class="col mb-2  @error('gambar_3') is-invalid @enderror" name="gambar_3"
+                                            type="file" id="formFile">
+                                        @error('gambar_3')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
 
                             <button type="submit" class="btn btn-primary mt-5 ">Tambahkan</button>

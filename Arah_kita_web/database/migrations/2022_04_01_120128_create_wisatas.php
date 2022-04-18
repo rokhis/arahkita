@@ -17,9 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama_wisata');
             $table->string('kategori');
+            $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('harga_tiket');
-
+            $table->string('gambar_1');
+            $table->string('gambar_2');
+            $table->string('gambar_3');
             $table->timestamps();
         });
     }

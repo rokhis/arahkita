@@ -13,7 +13,7 @@
                         <h5 class="title">Edit Wisata</h5>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('wisata/' . $wst->id) }}">
+                        <form method="POST" action="{{ url('wisata/' . $wst->id) }}" enctype="multipart/form-data">
 
                             @csrf
                             <input type="hidden" name="_method" value="PATCH">
@@ -49,6 +49,16 @@
 
                             </div>
                             <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Deskripsi</label>
+                                        <input type="text" name="lokasi" class="form-control" id="lokasi"
+                                            value="{{ $wst->deskripsi }}" required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3 pr-1">
                                     <div class="form-group">
                                         <label>Harga Tiket</label>
@@ -57,14 +67,61 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+
                             <button type="submit" class="btn btn-primary ">Simpan</button>
 
                         </form>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">Gambar Wisata</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ url('wisata/' . $wst->id) }}">
+                            <div class="row">
+                                <div class="col-md pr-1">
+                                    <div class="form-group">
+                                        <label>Gambar 1</label>
+                                        <div class="" style="height:150px; width:150px;">
+                                            <img class="rounded" src="{{ asset('storage/' . $wst->gambar_1) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md pr-1">
+                                    <div class="form-group">
+                                        <label>Gambar 2</label>
+                                        <div class="" style="height:150px; width:150px;">
+                                            <img class="rounded" src="{{ asset('storage/' . $wst->gambar_2) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md pr-1">
+                                    <div class="form-group">
+                                        <label>Gambar 3</label>
+                                        <div class="" style="height:150px; width:150px;">
+                                            <img class="rounded" src="{{ asset('storage/' . $wst->gambar_3) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-            {{-- <div class="content">
+
+                        </form>
+                    </div>
+                </div>
+
+
+                {{-- <div class="content">
                 <div class="row ">
                     <div class="col">
                         <div class="card ">
@@ -113,6 +170,6 @@
                     </div>
                 </div>
             </div> --}}
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection

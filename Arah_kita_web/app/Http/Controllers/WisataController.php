@@ -38,20 +38,22 @@ class WisataController extends Controller
 
 
     {
-        // $wisata = new Wisata();
-        // $wisata->nama_wisata = $request->nama_wisata;
-        // $wisata->kategori = $request->kategori;
-        // $wisata->lokasi = $request->lokasi;
-        // $wisata->harga_tiket = $request->harga_tiket;
-        // $wisata->save();
-        // return redirect()->route('wisata.index');
+
         $validate = $request->validate([
             'nama_wisata' => 'required|max:255|unique:wisatas',
             'kategori' => 'required',
+            'deskripsi' => 'required',
             'lokasi' => 'required',
-            'harga_tiket' => 'required'
+            'harga_tiket' => 'required',
+            'gambar_1' => 'required|image|file|max:5120',
+            'gambar_2' => 'required|image|file|max:5120',
+            'gambar_3' => 'required|image|file|max:5120'
 
         ]);
+
+        $validate['gambar_1'] = $request->file('gambar_1')->store('wisata-images');
+        $validate['gambar_2'] = $request->file('gambar_2')->store('wisata-images');
+        $validate['gambar_3'] = $request->file('gambar_3')->store('wisata-images');
 
         Wisata::create($validate);
 
@@ -93,6 +95,7 @@ class WisataController extends Controller
         $wisata = Wisata::find($id);
         $wisata->nama_wisata = $request->nama_wisata;
         $wisata->kategori = $request->kategori;
+        $wisata->deskripsi = $request->deskripsi;
         $wisata->lokasi = $request->lokasi;
         $wisata->harga_tiket = $request->harga_tiket;
         $wisata->save();
