@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Wisata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WisataController extends Controller
 {
@@ -92,13 +93,107 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->nama_wisata = $request->nama_wisata;
-        $wisata->kategori = $request->kategori;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->lokasi = $request->lokasi;
-        $wisata->harga_tiket = $request->harga_tiket;
-        $wisata->save();
+
+        $validate = $request->validate([
+            'nama_wisata' => 'required|max:255|unique:wisatas',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+            'lokasi' => 'required',
+            'harga_tiket' => 'required',
+            'gambar_1' => 'image|file|max:5120',
+            'gambar_2' => 'image|file|max:5120',
+            'gambar_3' => 'image|file|max:5120',
+
+        ]);
+
+
+
+        //gambar 1
+        if (empty($request->file('gambar_1'))) {
+            $wisata = Wisata::find($id);
+            $wisata->update([
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+
+
+            ]);
+        } else {
+            $wisata = Wisata::find($id);
+            Storage::delete($wisata->gambar_1);
+            $wisata->update([
+
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+                'gambar_1' => $request->file('gambar_1')->store('wisata-images')
+            ]);
+        }
+
+        //gambar 2
+        if (empty($request->file('gambar_2'))) {
+            $wisata = Wisata::find($id);
+            $wisata->update([
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+
+
+            ]);
+        } else {
+            $wisata = Wisata::find($id);
+            Storage::delete($wisata->gambar_1);
+            $wisata->update([
+
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+                'gambar_2' => $request->file('gambar_2')->store('wisata-images')
+            ]);
+        }
+
+        //gambar 3
+        if (empty($request->file('gambar_3'))) {
+            $wisata = Wisata::find($id);
+            $wisata->update([
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+
+
+            ]);
+        } else {
+            $wisata = Wisata::find($id);
+            Storage::delete($wisata->gambar_1);
+            $wisata->update([
+
+                'nama_wisata' => $request->nama_wisata,
+                'kategori' => $request->kategori,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'harga_tiket' => $request->harga_tiket,
+                'gambar_3' => $request->file('gambar_3')->store('wisata-images')
+            ]);
+        }
+
+
+        // $wisata = Wisata::find($id);
+        // $wisata->nama_wisata = $request->nama_wisata;
+        // $wisata->kategori = $request->kategori;
+        // $wisata->deskripsi = $request->deskripsi;
+        // $wisata->lokasi = $request->lokasi;
+        // $wisata->harga_tiket = $request->harga_tiket;
+        // $wisata->save();
 
         return redirect()->route('wisata.index');
     }
@@ -112,6 +207,12 @@ class WisataController extends Controller
     public function destroy($id)
     {
         $wisata = Wisata::find($id);
+        Storage::delete([
+            $wisata->gambar_1,
+            $wisata->gambar_2,
+            $wisata->gambar_3
+        ]);
+
         $wisata->delete();
         return redirect('/wisata');
     }

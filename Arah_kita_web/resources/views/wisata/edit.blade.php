@@ -15,14 +15,21 @@
                     <div class="card-body">
                         <form method="POST" action="{{ url('wisata/' . $wst->id) }}" enctype="multipart/form-data">
 
+                            @method('patch')
                             @csrf
-                            <input type="hidden" name="_method" value="PATCH">
+
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label for="nama_wisata">Nama Wisata</label>
-                                        <input type="text" name="nama_wisata" class="form-control" id="nama_wisata"
+                                        <input type="text" name="nama_wisata"
+                                            class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata"
                                             value="{{ $wst->nama_wisata }}" required>
+                                        @error('nama_wisata')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4 pr-2">
@@ -41,9 +48,9 @@
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
-                                        <label>Lokasi</label>
-                                        <input type="text" name="lokasi" class="form-control" id="lokasi"
-                                            value="{{ $wst->lokasi }}" required>
+                                        <label>Deskripsi</label>
+                                        <input type="text" name="deskripsi" class="form-control" id="deskripsi"
+                                            value="{{ $wst->deskripsi }}" required>
                                     </div>
                                 </div>
 
@@ -51,9 +58,9 @@
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
-                                        <label>Deskripsi</label>
+                                        <label>Lokasi</label>
                                         <input type="text" name="lokasi" class="form-control" id="lokasi"
-                                            value="{{ $wst->deskripsi }}" required>
+                                            value="{{ $wst->lokasi }}" required>
                                     </div>
                                 </div>
 
@@ -64,6 +71,50 @@
                                         <label>Harga Tiket</label>
                                         <input type="text" name="harga_tiket" class="form-control" id="harga_tiket"
                                             value="{{ $wst->harga_tiket }}" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <label for="formFile" class="form-label">Gambar 1</label>
+                                    <div class=" form-control">
+                                        <input class="col  @error('gambar_1') is-invalid @enderror" name="gambar_1"
+                                            type="file" id="formFile">
+                                        @error('gambar_1')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <label for="formFile" class="form-label">Gambar 2</label>
+                                    <div class=" form-control">
+                                        <input class="col  @error('gambar_2') is-invalid @enderror" name="gambar_2"
+                                            type="file" id="formFile">
+                                        @error('gambar_2')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <label for="formFile" class="form-label">Gambar 3</label>
+                                    <div class=" form-control">
+                                        <input class="col  @error('gambar_3') is-invalid @enderror" name="gambar_3"
+                                            type="file" id="formFile">
+                                        @error('gambar_3')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
