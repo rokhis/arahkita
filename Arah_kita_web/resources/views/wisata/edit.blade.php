@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 1</label>
                                     <div class=" form-control">
                                         <input class="col  @error('gambar_1') is-invalid @enderror" name="gambar_1"
@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 2</label>
                                     <div class=" form-control">
                                         <input class="col  @error('gambar_2') is-invalid @enderror" name="gambar_2"
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 3</label>
                                     <div class=" form-control">
                                         <input class="col  @error('gambar_3') is-invalid @enderror" name="gambar_3"
@@ -122,7 +122,7 @@
 
 
 
-                            <button type="submit" class="btn btn-primary ">Simpan</button>
+                            <button type="submit" class="btn btn-primary mt-3 ">Simpan</button>
 
                         </form>
                     </div>

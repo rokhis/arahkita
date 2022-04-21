@@ -95,7 +95,7 @@ class WisataController extends Controller
     {
 
         $validate = $request->validate([
-            'nama_wisata' => 'required|max:255|unique:wisatas',
+            'nama_wisata' => 'required|max:255',
             'kategori' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
@@ -148,7 +148,7 @@ class WisataController extends Controller
             ]);
         } else {
             $wisata = Wisata::find($id);
-            Storage::delete($wisata->gambar_1);
+            Storage::delete($wisata->gambar_2);
             $wisata->update([
 
                 'nama_wisata' => $request->nama_wisata,
@@ -174,7 +174,7 @@ class WisataController extends Controller
             ]);
         } else {
             $wisata = Wisata::find($id);
-            Storage::delete($wisata->gambar_1);
+            Storage::delete($wisata->gambar_3);
             $wisata->update([
 
                 'nama_wisata' => $request->nama_wisata,
