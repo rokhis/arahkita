@@ -28,14 +28,14 @@
                 </div>
             </form>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#pablo">
                         <i class="now-ui-icons media-2_sound-wave"></i>
                         <p>
                             <span class="d-lg-none d-md-block">Stats</span>
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -53,16 +53,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="now-ui-icons users_single-02"></i>
+                        Welcome Back , {{ auth()->user()->username }}
+
                         <p>
-                            <span class="d-lg-none d-md-block">Account</span>
+                            <span class="d-lg-none d-md-block"></span>
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">
                             <form method="POST" action="/logout">
                                 @csrf
-                                <button class="btn bg-white text-dark" type="submit">logout</button>
+                                <button class="border-0 bg-danger text-white" type="submit">logout</button>
                             </form>
 
                         </a>
