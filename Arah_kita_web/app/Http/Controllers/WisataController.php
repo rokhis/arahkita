@@ -15,7 +15,7 @@ class WisataController extends Controller
      */
     public function index()
     {
-        $wisata = \App\Models\Wisata::all();
+        $wisata = Wisata::all();
         return view('wisata.index', compact('wisata'));
     }
 

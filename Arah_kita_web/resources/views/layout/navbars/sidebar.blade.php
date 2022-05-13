@@ -41,6 +41,17 @@
 
                     </ul>
                 </div>
+                <div class="collapse show" id="laravelExamples">
+                    <ul class="nav">
+                        <li class="{{ Request::is('user') ? 'active' : '' }}">
+                            <a href="/user">
+                                <i class="now-ui-icons users_single-02"></i>
+                                <p> Data User </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
             <li>
                 <a href="./map.html">
                     <i class="now-ui-icons location_map-big"></i>
