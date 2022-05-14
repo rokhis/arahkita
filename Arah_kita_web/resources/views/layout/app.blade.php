@@ -19,6 +19,7 @@
     <link href="/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/assets/demo/demo.css" rel="stylesheet" />
+    <link href="/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -55,12 +56,39 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="/assets/demo/demo.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> --}}
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+
+    <script>
+        $(document).on('click', '#btn-hapus', function(e) {
+            e.preventDefault();
+
+            var data = $(this).attr('data-id');
+
+            Swal.fire({
+                title: 'Apakah kamu yakin?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/delete/' + data + ''
+                }
+            });
+
+
+        });
+    </script>
     <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
 
-        });
+        })
     </script>
 </body>
 

@@ -79,7 +79,7 @@ class UserMobileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $user_Mobile = User_Mobile::find($id);
         $user_Mobile->delete();

@@ -1,5 +1,5 @@
-@extends('layout.app',[
-'namePage' => 'Data User' ,
+@extends('layout.app', [
+    'namePage' => 'Data User',
 ])
 @section('title', 'Arah Kita | Data User')
 @section('content')
@@ -38,15 +38,11 @@
                                             <td class="text-right">
                                                 <a href="{{ url('user/' . $user->id . '/edit') }}"><button
                                                         class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
-                                                <form action="{{ url('user/' . $user->id) }}" method="POST"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit"
+                                                <a href="/delete/{{ $user->id }}"><button
                                                         class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
-                                                        onclick="return confirm ('Yakin untuk mengahapus ?')">
+                                                        id="btn-hapus" data-id={{ $user->id }}>
                                                         <span data-feather="x-circle"></span></button>
-                                                </form>
+                                                    </form>
                                             </td>
                                         </tr>
                                     @endforeach
