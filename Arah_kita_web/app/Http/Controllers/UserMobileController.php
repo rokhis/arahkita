@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User_Mobile;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserMobileController extends Controller
 {
@@ -83,7 +84,7 @@ class UserMobileController extends Controller
     {
         $user_Mobile = User_Mobile::find($id);
         $user_Mobile->delete();
-
+        Alert::toast('Data berhasil dihapus', 'success');
         return redirect()->route('user.index');
     }
 }

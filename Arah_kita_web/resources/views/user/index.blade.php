@@ -40,9 +40,9 @@
                                                         class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
                                                 <a href="/delete/{{ $user->id }}"><button
                                                         class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
-                                                        id="btn-hapus" data-id={{ $user->id }}>
+                                                        id="btn-hapus-user" data-id-user={{ $user->id }}>
                                                         <span data-feather="x-circle"></span></button>
-                                                    </form>
+
                                             </td>
                                         </tr>
                                     @endforeach

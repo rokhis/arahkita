@@ -28,6 +28,9 @@
         @include('layout.navbars.sidebar')
         {{-- end sidebar --}}
 
+        {{-- sweetalert --}}
+        @include('sweetalert::alert')
+
         <div class="main-panel" id="main-panel">
             <!-- Navbar -->
             @include('layout.navbars.navbar')
@@ -60,11 +63,12 @@
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> --}}
     <script src="/sweetalert2/sweetalert2.min.js"></script>
 
+    {{-- Sweet alret button hapus --}}
     <script>
-        $(document).on('click', '#btn-hapus', function(e) {
+        $(document).on('click', '#btn-hapus-user', function(e) {
             e.preventDefault();
 
-            var data = $(this).attr('data-id');
+            var data = $(this).attr('data-id-user');
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
@@ -79,10 +83,32 @@
                     window.location = '/delete/' + data + ''
                 }
             });
-
-
         });
     </script>
+
+    <script>
+        $(document).on('click', '#btn-hapus-wisata', function(e) {
+            e.preventDefault();
+
+            var data = $(this).attr('data-id-wisata');
+
+            Swal.fire({
+                title: 'Apakah kamu yakin?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/delete/' + data + ''
+                }
+            });
+        });
+    </script>
+    {{-- end button hapus --}}
+
     <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class WisataController extends Controller
 {
@@ -57,6 +58,7 @@ class WisataController extends Controller
         $validate['gambar_3'] = $request->file('gambar_3')->store('wisata-images');
 
         Wisata::create($validate);
+        Alert::toast('Data berhasil ditambahkan', 'success');
 
         return redirect()->route('wisata.index');
     }
@@ -204,7 +206,7 @@ class WisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $wisata = Wisata::find($id);
         Storage::delete([
@@ -214,6 +216,7 @@ class WisataController extends Controller
         ]);
 
         $wisata->delete();
+        Alert::toast('Data berhasil dihapus', 'success');
         return redirect('/wisata');
     }
 }

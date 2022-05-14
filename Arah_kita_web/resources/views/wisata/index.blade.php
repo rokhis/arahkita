@@ -1,5 +1,5 @@
-@extends('layout.app',[
-'namePage' => 'Data Wisata' ,
+@extends('layout.app', [
+    'namePage' => 'Data Wisata',
 ])
 @section('title', 'Arah Kita | Data Wisata')
 @section('content')
@@ -40,15 +40,10 @@
                                             <td class="text-right">
                                                 <a href="{{ url('wisata/' . $wst->id . '/edit') }}"><button
                                                         class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
-                                                <form action="{{ url('wisata/' . $wst->id) }}" method="POST"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit"
+                                                <a href="/delete/{{ $wst->id }}"><button
                                                         class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
-                                                        onclick="return confirm ('Yakin untuk mengahapus ?')">
+                                                        id="btn-hapus-wisata" data-id-wisata={{ $wst->id }}>
                                                         <span data-feather="x-circle"></span></button>
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

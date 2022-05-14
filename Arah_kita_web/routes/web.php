@@ -32,3 +32,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::resource('/wisata', WisataController::class)->middleware('auth');
 Route::resource('/user', UserMobileController::class)->middleware('auth');
 Route::get('/delete/{id}', [UserMobileController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
