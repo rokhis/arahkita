@@ -40,7 +40,7 @@
                                             <td class="text-right">
                                                 <a href="{{ url('wisata/' . $wst->id . '/edit') }}"><button
                                                         class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
-                                                <a href="/delete/{{ $wst->id }}"><button
+                                                <a href="wisata/delete/{{ $wst->id }}"><button
                                                         class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
                                                         id="btn-hapus-wisata" data-id-wisata={{ $wst->id }}>
                                                         <span data-feather="x-circle"></span></button>

@@ -80,7 +80,7 @@
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = '/delete/' + data + ''
+                    window.location = '/user/delete/' + data + ''
                 }
             });
         });
@@ -102,7 +102,7 @@
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = '/delete/' + data + ''
+                    window.location = 'wisata/delete/' + data + ''
                 }
             });
         });

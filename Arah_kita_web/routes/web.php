@@ -31,5 +31,5 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::resource('/wisata', WisataController::class)->middleware('auth');
 Route::resource('/user', UserMobileController::class)->middleware('auth');
-Route::get('/delete/{id}', [UserMobileController::class, 'delete'])->name('delete')->middleware('auth');
-Route::get('/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/user/delete/{id}', [UserMobileController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/wisata/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
