@@ -31,8 +31,8 @@ class LoginController extends Controller
             alert()->success('Login Berhasil');
             return redirect()->intended('/dashboard');
         }
-
-        return back()->with('loginError', 'Login gagal');
+        alert()->error('Login Gagal!', 'Email atau Password anda salah');
+        return back();
     }
 
     public function logout(Request $request)

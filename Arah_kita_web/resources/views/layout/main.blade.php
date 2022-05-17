@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <main>
 
     </main>

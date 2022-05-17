@@ -108,11 +108,22 @@ class WisataController extends Controller
 
         ]);
 
+        // $wisata = Wisata::FindOrFail($id);
+        // $wisata->update([
+        //     'nama_wisata' => $request->nama_wisata,
+        //     'kategori' => $request->kategori,
+        //     'deskripsi' => $request->deskripsi,
+        //     'lokasi' => $request->lokasi,
+        //     'harga_tiket' => $request->harga_tiket,
+
+
+
+        // ]);
 
 
         //gambar 1
         if (empty($request->file('gambar_1'))) {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             $wisata->update([
                 'nama_wisata' => $request->nama_wisata,
                 'kategori' => $request->kategori,
@@ -123,7 +134,7 @@ class WisataController extends Controller
 
             ]);
         } else {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             Storage::delete($wisata->gambar_1);
             $wisata->update([
 
@@ -138,7 +149,7 @@ class WisataController extends Controller
 
         //gambar 2
         if (empty($request->file('gambar_2'))) {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             $wisata->update([
                 'nama_wisata' => $request->nama_wisata,
                 'kategori' => $request->kategori,
@@ -149,7 +160,7 @@ class WisataController extends Controller
 
             ]);
         } else {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             Storage::delete($wisata->gambar_2);
             $wisata->update([
 
@@ -164,7 +175,7 @@ class WisataController extends Controller
 
         //gambar 3
         if (empty($request->file('gambar_3'))) {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             $wisata->update([
                 'nama_wisata' => $request->nama_wisata,
                 'kategori' => $request->kategori,
@@ -175,7 +186,7 @@ class WisataController extends Controller
 
             ]);
         } else {
-            $wisata = Wisata::find($id);
+            $wisata = Wisata::FindOrFail($id);
             Storage::delete($wisata->gambar_3);
             $wisata->update([
 
@@ -188,15 +199,15 @@ class WisataController extends Controller
             ]);
         }
 
-
-        // $wisata = Wisata::find($id);
-        // $wisata->nama_wisata = $request->nama_wisata;
-        // $wisata->kategori = $request->kategori;
-        // $wisata->deskripsi = $request->deskripsi;
-        // $wisata->lokasi = $request->lokasi;
-        // $wisata->harga_tiket = $request->harga_tiket;
-        // $wisata->save();
-
+        // if ($wisata) {
+        //     Alert::toast('Data berhasil ditambahkan', 'success');
+        //     return redirect()->route('wisata.index');
+        // } else {
+        //     Alert::toast('Data tidak dirubah', 'info');
+        //     return redirect()->route('wisata.index');
+        // }
+        // dd($wisata);
+        Alert::toast('Data berhasil dirubah', 'success');
         return redirect()->route('wisata.index');
     }
 
