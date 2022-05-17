@@ -60,11 +60,13 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button class="border-0 bg-danger text-white" type="submit">logout</button>
-                            </form>
+                        <a class="dropdown-item" href="/password/edit">Ubah Password</a>
+
+
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button class="dropdown-item border-0  text-dark" type="submit">logout</button>
+                        </form>
 
                         </a>
 
