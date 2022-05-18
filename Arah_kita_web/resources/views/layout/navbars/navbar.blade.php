@@ -61,6 +61,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/password/edit">Ubah Password</a>
+                        <a class="dropdown-item" href="/profil/edit">Edit Profil</a>
 
 
                         <form method="POST" action="/logout">

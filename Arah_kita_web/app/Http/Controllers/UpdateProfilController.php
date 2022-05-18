@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User_Mobile;
 use Illuminate\Http\Request;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserMobileController extends Controller
+
+
+
+
+class UpdateProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +19,7 @@ class UserMobileController extends Controller
      */
     public function index()
     {
-        $user_mobile = User_Mobile::all();
-        return view('user.index', compact('user_mobile'));
+        //
     }
 
     /**
@@ -43,35 +46,47 @@ class UserMobileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User_Mobile  $user_Mobile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User_Mobile $user_Mobile)
+    public function show($id)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
      * @param  int  $id
-     * @param  \App\Models\User_Mobile  $user_Mobile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $user_mobile = User_Mobile::find($id);
-        return view('user.view', compact('user_mobile'));
+        return view('auth.edit-profil');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User_Mobile  $user_Mobile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User_Mobile $user_Mobile)
+    public function update(Request $request)
     {
-        //
+        $validatedata = $request->validate([
+            'nama' => 'required|max:255',
+            'username' => 'required|min:3|max:20',
+            'email' => 'required|email:dns',
+            // . auth()->id()
+        ]);
+
+
+
+        auth()->user()->update($validatedata);
+        Alert::toast('Profil berhasil diupdate', 'success');
+
+        return back();
     }
 
     /**
@@ -80,11 +95,8 @@ class UserMobileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $user_Mobile = User_Mobile::find($id);
-        $user_Mobile->delete();
-        Alert::toast('Data berhasil dihapus', 'success');
-        return redirect()->route('user.index');
+        //
     }
 }

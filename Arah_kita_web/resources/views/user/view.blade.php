@@ -1,5 +1,5 @@
-@extends('layout.app',[
-'namePage' => 'Data User' ,
+@extends('layout.app', [
+    'namePage' => 'Data User',
 ])
 @section('title', 'Arah Kita | Data User')
 @section('content')
@@ -20,14 +20,15 @@
                                 <div class="col-md-5 pr-1 ">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control" value="{{ $user->username }}"
+                                        <input type="text" class="form-control" value="{{ $user_mobile->username }}"
                                             disabled="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email </label>
-                                        <input type="email" class="form-control" value="{{ $user->email }}" disabled="">
+                                        <input type="email" class="form-control" value="{{ $user_mobile->email }}"
+                                            disabled="">
                                     </div>
                                 </div>
 
@@ -36,7 +37,8 @@
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" disabled="" value="{{ $user->nama }}">
+                                        <input type="text" class="form-control" disabled=""
+                                            value="{{ $user_mobile->nama }}">
                                     </div>
                                 </div>
                             </div>
@@ -47,14 +49,14 @@
                                     <div class="form-group">
                                         <label>Tanggal Lahir</label>
                                         <input type="text" class="form-control" disabled="" class="form-control"
-                                            value="{{ $user->tgl_lahir }}">
+                                            value="{{ $user_mobile->tgl_lahir }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <input type="text" disabled="" class="form-control"
-                                            value="{{ $user->jenis_kelamin }}">
+                                            value="{{ $user_mobile->jenis_kelamin }}">
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +64,8 @@
                                 <div class="col-md-4 pr-1">
                                     <div class="form-group">
                                         <label>No Hp</label>
-                                        <input type="text" class="form-control" disabled="" value="{{ $user->no_hp }}">
+                                        <input type="text" class="form-control" disabled=""
+                                            value="{{ $user_mobile->no_hp }}">
                                     </div>
                                 </div>
 
@@ -82,7 +85,7 @@
                         <div class="author">
                             <a href="#">
                                 <img class="avatar border-gray" src="/img/user.jpg" alt="...">
-                                <h5 class="title">{{ $user->nama }}</h5>
+                                <h5 class="title">{{ $user_mobile->nama }}</h5>
                             </a>
                             <p class="description">
                                 michael24

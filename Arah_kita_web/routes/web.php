@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\UpdateProfilController;
 use App\Models\User_Mobile;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/profil/edit', [UpdateProfilController::class, 'edit'])->name('profil.edit');
+Route::put('/profil/edit', [UpdateProfilController::class, 'update']);
 
 Route::get('/password/edit', [UpdatePasswordController::class, 'edit'])->name('password.edit');
 Route::put('/password/edit', [UpdatePasswordController::class, 'update']);
