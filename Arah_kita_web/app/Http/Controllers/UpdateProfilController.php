@@ -79,6 +79,7 @@ class UpdateProfilController extends Controller
             'username' => 'required|min:3|max:20',
             'email' => 'required|email:dns',
             // . auth()->id()
+            // unique:users,username
         ]);
 
 
