@@ -52,6 +52,28 @@
 
                     </ul>
                 </div>
+                <div class="collapse show" id="laravelExamples">
+                    <ul class="nav">
+                        <li class="{{ Request::is('transaksi') ? 'active' : '' }}">
+                            <a href="/transaksi">
+                                <i class="now-ui-icons users_single-02"></i>
+                                <p> Data Transaksi </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="collapse show" id="laravelExamples">
+                    <ul class="nav">
+                        <li class="{{ Request::is('tiket') ? 'active' : '' }}">
+                            <a href="/tiket">
+                                <i class="now-ui-icons users_single-02"></i>
+                                <p> E-Tiket</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
             <li>
                 <a href="./map.html">
                     <i class="now-ui-icons location_map-big"></i>

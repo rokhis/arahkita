@@ -1,5 +1,5 @@
-@extends('layout.app',[
-'namePage' => 'Data Wisata' ,
+@extends('layout.app', [
+    'namePage' => 'Data Wisata',
 ])
 @section('title', 'Arah Kita | edit wisata')
 @section('content')

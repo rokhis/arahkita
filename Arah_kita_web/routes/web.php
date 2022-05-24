@@ -8,6 +8,8 @@ use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\UpdateProfilController;
 use App\Models\User_Mobile;
+use App\Http\Controllers\TiketController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,8 +41,12 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::resource('/wisata', WisataController::class)->middleware('auth');
 Route::resource('/user', UserMobileController::class)->middleware('auth');
+Route::resource('/transaksi', TransaksiController::class)->middleware('auth');
+Route::resource('/tiket', TiketController::class)->middleware('auth');
 
 
 
 Route::get('/user/delete/{id}', [UserMobileController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/wisata/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/transaksi/delete/{id}', [TransaksiController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/tiket/delete/{id}', [TiketController::class, 'delete'])->name('delete')->middleware('auth');

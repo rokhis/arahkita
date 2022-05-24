@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tiket;
-use App\Models\User;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-
-use function GuzzleHttp\Promise\all;
-
-class RegisterController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +17,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('auth.register');
+        $transaksi = Transaksi::all();
+        return view('transaksi.index', compact('transaksi'));
     }
 
     /**
@@ -29,7 +28,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        //
     }
 
     /**
@@ -40,21 +39,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'nama' => 'required|max:255',
-            'username' => 'required|min:3|max:20|unique:users',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:8|max:20'
-
-        ]);
-
-        $validateData['password'] = Hash::make($validateData['password']);
-
-        User::create($validateData);
-
-        $request->session()->flash('success', 'Registrasi berhasil! Silahkan Login');
-
-        return redirect('/login');
+        //
     }
 
     /**
@@ -76,6 +61,8 @@ class RegisterController extends Controller
      */
     public function edit($id)
     {
+        $transaksi = Transaksi::find($id);
+        return view('transaksi.edit', compact('transaksi'));
     }
 
     /**
@@ -87,7 +74,23 @@ class RegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $validate = $request->validate([
+
+        //     'tgl_tiket' => 'required|max:255|',
+        //     // 'nama_pembeli' => 'required',
+        //     // 'nama_wisata' => 'required',
+        //     'jumlah_tiket' => 'required',
+        //     'total_harga' => 'required',
+        //     'status' => 'required',
+        // ]);
+
+
+        // $transaksi = Transaksi::FindOrFail($id);
+
+        // $transaksi->update($validate);
+        // Alert::toast('Update data berhasil', 'success');
+
+        // return redirect()->route('transaksi.index');
     }
 
     /**
@@ -96,8 +99,11 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $transaksi = Transaksi::find($id);
+        $transaksi->delete();
+        Alert::toast('Data berhasil dihapus', 'success');
+        return redirect()->route('transaksi.index');
     }
 }
