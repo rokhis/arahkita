@@ -2,26 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User_Mobile;
+use App\Models\Tiket;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserMobileController extends Controller
+class ScanController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->has('search')) {
-            $user_mobile = User_Mobile::where('nama', 'like', '%' . $request->search . '%')
-                ->orWhere('username', 'like', '%' . $request->search . '%')->get();
-        } else {
-            $user_mobile = User_Mobile::all();
-        }
-        return view('user.index', compact('user_mobile', 'request'));
+        return view('scan.index');
     }
 
     /**
@@ -48,33 +42,33 @@ class UserMobileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User_Mobile  $user_Mobile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User_Mobile $user_Mobile)
+    public function show($id)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
      * @param  int  $id
-     * @param  \App\Models\User_Mobile  $user_Mobile
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $user_mobile = User_Mobile::find($id);
-        return view('user.view', compact('user_mobile'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User_Mobile  $user_Mobile
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User_Mobile $user_Mobile)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,11 +79,27 @@ class UserMobileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $user_Mobile = User_Mobile::find($id);
-        $user_Mobile->delete();
-        Alert::toast('Data berhasil dihapus', 'success');
-        return redirect()->route('user.index');
+        //
+    }
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function validasiQrcode(Request $request)
+    {
+        $validasi = Tiket::where('kode_tiket', $request->kode_tiket)->first();
+
+        if ($validasi == null) {
+
+            Alert::toast('E-tiket tidak valid', 'error');
+            return back();
+        }
+
+        Alert::toast('E-tiket berhasil di validasi', 'success');
+        return back();
     }
 }

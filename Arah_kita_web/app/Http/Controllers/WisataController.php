@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Builder\Function_;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class WisataController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        $wisata = Wisata::all();
-        return view('wisata.index', compact('wisata'));
+        if ($request->has('search')) {
+            $wisata = Wisata::where('nama_wisata', 'like', '%' . $request->search . '%')
+                ->orWhere('kategori', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $wisata = Wisata::all();
+        }
+        return view('wisata.index', compact('wisata', 'request'));
     }
 
     /**

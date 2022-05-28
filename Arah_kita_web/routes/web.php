@@ -11,6 +11,7 @@ use App\Models\User_Mobile;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,6 @@ Route::get('/user/delete/{id}', [UserMobileController::class, 'delete'])->name('
 Route::get('/wisata/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/transaksi/delete/{id}', [TransaksiController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/tiket/delete/{id}', [TiketController::class, 'delete'])->name('delete')->middleware('auth');
+
+Route::get('/scan', [ScanController::class, 'index'])->name('index')->middleware('guest');
+Route::post('/scan', [ScanController::class, 'validasiQrcode'])->name('validasiQrcode')->middleware('guest');

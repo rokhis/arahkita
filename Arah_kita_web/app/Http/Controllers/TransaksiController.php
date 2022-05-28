@@ -15,10 +15,17 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $transaksi = Transaksi::all();
-        return view('transaksi.index', compact('transaksi'));
+        if ($request->has('search')) {
+            $transaksi = Transaksi::where('created_at', 'like', '%' . $request->search . '%')
+                ->get();
+        } else {
+            $transaksi = Transaksi::all();
+        }
+        return view('transaksi.index', compact('transaksi', 'request'));
+        // $transaksi = Transaksi::all();
+        // return view('transaksi.index', compact('transaksi'));
     }
 
     /**

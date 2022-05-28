@@ -19,10 +19,15 @@ class TiketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tiket = Tiket::all();
-        return view('tiket.index', compact('tiket'));
+        if ($request->has('search')) {
+            $tiket = Tiket::where('nama_pembeli', 'like', '%' . $request->search . '%')
+                ->orWhere('nama_wisata', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $tiket = Tiket::all();
+        }
+        return view('tiket.index', compact('tiket', 'request'));
     }
 
     /**

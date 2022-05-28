@@ -17,7 +17,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
+            {{-- <form>
                 <div class="input-group no-border">
                     <input type="text" value="" class="form-control" placeholder="Search...">
                     <div class="input-group-append">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> --}}
             <ul class="navbar-nav">
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#pablo">
@@ -36,7 +36,7 @@
                         </p>
                     </a>
                 </li> --}}
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="now-ui-icons location_world"></i>
@@ -49,7 +49,7 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">

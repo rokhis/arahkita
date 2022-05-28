@@ -70,9 +70,10 @@ class UpdateProfilController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @param App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
         $validatedata = $request->validate([
             'nama' => 'required|max:255',
