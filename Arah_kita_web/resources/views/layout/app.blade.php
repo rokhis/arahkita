@@ -46,6 +46,10 @@
             {{-- end footer --}}
         </div>
     </div>
+
+    {{-- scan qr Code --}}
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
     <!--   Core JS Files   -->
     <script src="/assets/js/core/jquery.min.js"></script>
     <script src="/assets/js/core/popper.min.js"></script>
@@ -153,6 +157,34 @@
         });
     </script>
     {{-- end button hapus --}}
+
+    {{-- script scan qr code --}}
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            // handle the scanned code as you like, for example:
+            console.log(`Code matched = ${decodedText}`, decodedResult);
+            $("#result").val(decodedText);
+        }
+
+        function onScanFailure(error) {
+            // handle scan failure, usually better to ignore and keep scanning.
+            // for example:
+            console.warn(`Code scan error = ${error}`);
+        }
+
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: {
+                    width: 200,
+                    height: 200
+                }
+            },
+            /* verbose= */
+            false);
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    </script>
+    {{-- end script scan qr code --}}
 
     <script>
         $(document).ready(function() {

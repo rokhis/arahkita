@@ -38,11 +38,6 @@
                             <button class="w-50 btn btn-primary text-white mt-3" type="submit">Login</button>
                         </div>
 
-                        <small class=" text-right text-black">Belum punya akun ? <a href="/register">
-                                Daftar</a></small>
-                        <hr>
-                        <small class=" text-right text-black">masuk sebagai pengelola wisata ? <a href="/scan">
-                                Daftar</a></small>
 
                     </form>
                 </div>

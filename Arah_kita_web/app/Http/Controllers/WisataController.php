@@ -18,6 +18,7 @@ class WisataController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('admin');
         if ($request->has('search')) {
             $wisata = Wisata::where('nama_wisata', 'like', '%' . $request->search . '%')
                 ->orWhere('kategori', 'like', '%' . $request->search . '%')->get();
@@ -34,6 +35,7 @@ class WisataController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('wisata.create');
     }
 
@@ -47,6 +49,7 @@ class WisataController extends Controller
 
 
     {
+        $this->authorize('admin');
 
         $validate = $request->validate([
             'nama_wisata' => 'required|max:255|unique:wisatas',
@@ -89,6 +92,7 @@ class WisataController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $wst = Wisata::find($id);
         return view('wisata.edit', compact('wst'));
     }
@@ -102,7 +106,7 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $this->authorize('admin');
         $validate = $request->validate([
             'nama_wisata' => 'required|max:255',
             'kategori' => 'required',
@@ -226,6 +230,7 @@ class WisataController extends Controller
      */
     public function delete($id)
     {
+        $this->authorize('admin');
         $wisata = Wisata::find($id);
         Storage::delete([
             $wisata->gambar_1,

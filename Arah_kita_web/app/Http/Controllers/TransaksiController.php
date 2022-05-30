@@ -17,6 +17,7 @@ class TransaksiController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('admin');
         if ($request->has('search')) {
             $transaksi = Transaksi::where('created_at', 'like', '%' . $request->search . '%')
                 ->get();
@@ -68,6 +69,7 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $transaksi = Transaksi::find($id);
         return view('transaksi.edit', compact('transaksi'));
     }
@@ -108,6 +110,7 @@ class TransaksiController extends Controller
      */
     public function delete($id)
     {
+        $this->authorize('admin');
         $transaksi = Transaksi::find($id);
         $transaksi->delete();
         Alert::toast('Data berhasil dihapus', 'success');

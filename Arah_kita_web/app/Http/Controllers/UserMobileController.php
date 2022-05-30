@@ -15,6 +15,7 @@ class UserMobileController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('admin');
         if ($request->has('search')) {
             $user_mobile = User_Mobile::where('nama', 'like', '%' . $request->search . '%')
                 ->orWhere('username', 'like', '%' . $request->search . '%')->get();
@@ -63,6 +64,7 @@ class UserMobileController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $user_mobile = User_Mobile::find($id);
         return view('user.view', compact('user_mobile'));
     }
@@ -87,6 +89,7 @@ class UserMobileController extends Controller
      */
     public function delete($id)
     {
+        $this->authorize('admin');
         $user_Mobile = User_Mobile::find($id);
         $user_Mobile->delete();
         Alert::toast('Data berhasil dihapus', 'success');

@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tiket;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
-
-use function GuzzleHttp\Promise\all;
-
-class RegisterController extends Controller
+class PengelolaScanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +16,7 @@ class RegisterController extends Controller
     public function index()
     {
 
-        $this->authorize('superadmin');
-        return view('auth.register');
+        return view('scan.index');
     }
 
     /**
@@ -32,8 +26,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        $this->authorize('superadmin');
-        return view('auth.register');
+        //
     }
 
     /**
@@ -44,21 +37,15 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('superadmin');
-        $validateData = $request->validate([
-            'nama' => 'required|max:255',
-            'username' => 'required|min:3|max:20|unique:users',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:8|max:20'
+        $validasi = Tiket::where('kode_tiket', $request->kode_tiket)->first();
 
-        ]);
+        if ($validasi == null) {
 
-        $validateData['password'] = Hash::make($validateData['password']);
+            Alert::toast('E-tiket tidak valid', 'error');
+            return back();
+        }
 
-        User::create($validateData);
-
-        Alert::toast('Data berhasil ditambahkan', 'success');
-
+        Alert::toast('E-tiket berhasil di validasi', 'success');
         return back();
     }
 
@@ -81,6 +68,7 @@ class RegisterController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**

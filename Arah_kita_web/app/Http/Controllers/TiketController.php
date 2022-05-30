@@ -21,6 +21,7 @@ class TiketController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('admin');
         if ($request->has('search')) {
             $tiket = Tiket::where('nama_pembeli', 'like', '%' . $request->search . '%')
                 ->orWhere('nama_wisata', 'like', '%' . $request->search . '%')->get();
@@ -48,7 +49,7 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->authorize('admin');
         // $tiket = new Tiket();
         // $tiket->qr_code = $request->transaksi_id;
         // $tiket->user_mobile_id = $request->user_mobile_id;
@@ -113,6 +114,7 @@ class TiketController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $tiket = Tiket::find($id);
         return view('tiket.edit', compact('tiket'));
     }
@@ -137,6 +139,7 @@ class TiketController extends Controller
      */
     public function delete($id)
     {
+        $this->authorize('admin');
         $tiket = Tiket::find($id);
         $tiket->delete();
         Alert::toast('Data berhasil dihapus', 'success');
