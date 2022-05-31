@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 pr-1">
+                                <div class="col-md-10 pr-1">
                                     <div class="form-group">
                                         <label>Deskripsi</label>
                                         <input type="text" name="deskripsi" class="form-control" id="deskripsi"
