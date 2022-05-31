@@ -17,13 +17,7 @@
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="col-md-5 pr-1 ">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" class="form-control" value="{{ $user_mobile->username }}"
-                                            disabled="">
-                                    </div>
-                                </div>
+
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email </label>

@@ -15,23 +15,29 @@
                         @csrf
 
                         <div class="col-md mb-2">
-                            <label for="email" class="form-label text-left">Email</label>
-                            <input type="email" id="email"
-                                class="form-control  bg-light @error('email') is-invalid @enderror" name="email"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" required
-                                value="{{ old('email') }}" autofocus>
-                            @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <div class="form-group">
+                                <label for="email" class="form-label text-left">Email</label>
+                                <input type="email" id="email"
+                                    class="form-control  bg-light @error('email') is-invalid @enderror" name="email"
+                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com"
+                                    required value="{{ old('email') }}" autofocus>
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                            </div>
                         </div>
 
                         <div class="col-md mb-2">
-                            <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="password" class="form-control  bg-light" name="password"
-                                class="form-control" aria-describedby="passwordHelpInline" placeholder="password"
-                                required>
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Password</label>
+                                <input type="password" id="password" class="form-control  bg-light" name="password"
+                                    class="form-control" aria-describedby="passwordHelpInline" placeholder="password"
+                                    required>
+
+                            </div>
                         </div>
 
                         <div class="text-center mb-3">

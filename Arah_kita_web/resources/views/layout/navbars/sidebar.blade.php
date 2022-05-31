@@ -83,10 +83,10 @@
         <hr>
         @can('superadmin')
             <ul class="nav">
-                <li class="{{ Request::is('register') ? 'active' : '' }}">
-                    <a href="/register">
-                        <i class="now-ui-icons files_paper"></i>
-                        <p> Tambah Admin</p>
+                <li class="{{ Request::is('admin') ? 'active' : '' }}">
+                    <a href="/admin">
+                        <i class="now-ui-icons business_badge"></i>
+                        <p> Data Admin</p>
                     </a>
                 </li>
             </ul>
@@ -97,7 +97,7 @@
         <ul class="nav">
             <li class="{{ Request::is('scan') ? 'active' : '' }}">
                 <a href="/scan">
-                    <i class="now-ui-icons files_paper"></i>
+                    <i class="now-ui-icons tech_mobile"></i>
                     <p> Scan E-tiket</p>
                 </a>
             </li>

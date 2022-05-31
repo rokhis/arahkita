@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserMobileController;
 use App\Http\Controllers\LoginController;
@@ -45,14 +46,14 @@ Route::resource('/wisata', WisataController::class)->middleware('auth');
 Route::resource('/user', UserMobileController::class)->middleware('auth');
 Route::resource('/transaksi', TransaksiController::class)->middleware('auth');
 Route::resource('/tiket', TiketController::class)->middleware('auth');
-
+Route::resource('/admin', AdminController::class)->middleware('auth');
 
 
 Route::get('/user/delete/{id}', [UserMobileController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/wisata/delete/{id}', [WisataController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/transaksi/delete/{id}', [TransaksiController::class, 'delete'])->name('delete')->middleware('auth');
 Route::get('/tiket/delete/{id}', [TiketController::class, 'delete'])->name('delete')->middleware('auth');
-
+Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('delete')->middleware('auth');
 // Route::get('/scan', [ScanController::class, 'index'])->name('index')->middleware('guest');
 // Route::post('/scan', [ScanController::class, 'validasiQrcode'])->name('validasiQrcode')->middleware('guest');
 

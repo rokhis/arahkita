@@ -156,6 +156,28 @@
             });
         });
     </script>
+
+    <script>
+        $(document).on('click', '#btn-hapus-admin', function(e) {
+            e.preventDefault();
+
+            var data = $(this).attr('data-id-admin');
+
+            Swal.fire({
+                title: 'Apakah kamu yakin?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = 'admin/delete/' + data + ''
+                }
+            });
+        });
+    </script>
     {{-- end button hapus --}}
 
     {{-- script scan qr code --}}

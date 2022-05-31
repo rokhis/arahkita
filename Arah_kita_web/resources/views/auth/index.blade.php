@@ -1,5 +1,5 @@
 @extends('layout.app', [
-    'namePage' => 'Data User',
+    'namePage' => 'Data Admin',
 ])
 @section('title', 'Arah Kita | Data User')
 @section('content')
@@ -12,10 +12,13 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col">
-                                <h4 class="card-title"> Data User</h4>
+                                <h4 class="card-title"> Data Admin</h4>
+                                <a href="{{ url('/register') }}"><button class="btn btn-primary border-0 p-2"> <i
+                                            class="now-ui-icons ui-1_simple-add"></i> Tambah
+                                        Admin</button></a>
                             </div>
                             <div class="col-md-5">
-                                <form action="/user" method="GET">
+                                <form action="/admin" method="GET">
                                     <div class="input-group no-border p-4">
                                         <input type="text" value="{{ $request->search }}" class="form-control"
                                             placeholder="Search..." name="search">
@@ -30,34 +33,33 @@
                         </div>
 
                     </div>
-                    @if ($user_mobile->count())
+                    @if ($user->count())
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
-                                        <th scope="col">No.</th>
-                                        <th scope="col">Nama User</th>
-
-                                        <th scope="col">No Hp</th>
+                                        <th scope="col">ID Admin</th>
+                                        <th scope="col">Nama Admin</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Is admin</th>
+
                                         <th class="text-right" scope="col">action</th>
 
                                     </thead>
                                     <tbody>
-                                        @foreach ($user_mobile as $user)
+                                        @foreach ($user as $usr)
                                             <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $user->nama }}</td>
-
-                                                <td>{{ $user->no_hp }}</td>
-                                                <td>{{ $user->email }}</td>
+                                                <th>{{ $usr->id }}</th>
+                                                <td>{{ $usr->nama }}</td>
+                                                <td>{{ $usr->username }}</td>
+                                                <td>{{ $usr->email }}</td>
+                                                <td>{{ $usr->is_admin }}</td>
 
                                                 <td class="text-right">
-                                                    <a href="{{ url('user/' . $user->id . '/edit') }}"><button
-                                                            class="now-ui-icons shopping_tag-content btn btn-success border-0 p-2"></button></a>
-                                                    <a href="/user/delete/{{ $user->id }}"><button
+                                                    <a href="/admin/delete/{{ $usr->id }}"><button
                                                             class="btn btn-danger border-0 p-2 now-ui-icons ui-1_simple-remove"
-                                                            id="btn-hapus-user" data-id-user={{ $user->id }}>
+                                                            id="btn-hapus-admin" data-id-admin={{ $usr->id }}>
                                                             <span data-feather="x-circle"></span></button>
 
                                                 </td>
