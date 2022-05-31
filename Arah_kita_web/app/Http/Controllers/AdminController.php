@@ -22,7 +22,7 @@ class AdminController extends Controller
         } else {
             $user = User::all();
         }
-        return view('auth.index', compact('user', 'request'));
+        return view('admin.index', compact('user', 'request'));
     }
 
 
@@ -66,6 +66,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
+        // $this->authorize('superadmin');
+        // $user = User::find($id);
+        // return view('admin.edit', compact('user'));
     }
 
     /**
@@ -77,7 +80,23 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $validate = $request->validate([
+        //     'nama' => 'required|max:255',
+        //     'username' => 'required|min:3|max:20',
+        //     'email' => 'required|email:dns',
+        //     'is_admin' => 'required',
+
+
+        // ]);
+
+
+
+        // $user = User::find($id);
+        // $user->update($validate);
+
+        // Alert::toast('Data berhasil di update', 'success');
+
+        // return redirect()->route('admin.index');
     }
 
     /**

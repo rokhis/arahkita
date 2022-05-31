@@ -70,7 +70,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="card card-user">
                     <div class="image">
                         <img src="/img/bg.png" alt="...">
@@ -92,7 +92,7 @@
                         </p>
                     </div>
                     <hr>
-                    {{-- <div class="button-container">
+                    <div class="button-container">
                         <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
                             <i class="fab fa-facebook-f"></i>
                         </button>
@@ -102,9 +102,9 @@
                         <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
                             <i class="fab fa-google-plus-g"></i>
                         </button>
-                    </div> --}}
+                    </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
