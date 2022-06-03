@@ -1,5 +1,5 @@
 @extends('layout.app', [
-    'namePage' => 'Data Tiket',
+    'namePage' => 'View Tiket',
 ])
 @section('title', 'Arah Kita | view e-tiket')
 @section('content')

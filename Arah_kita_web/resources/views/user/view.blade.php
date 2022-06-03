@@ -1,7 +1,7 @@
 @extends('layout.app', [
     'namePage' => 'Data User',
 ])
-@section('title', 'Arah Kita | Data User')
+@section('title', 'Arah Kita | View User')
 @section('content')
 
     <div class="panel-header panel-header-sm">

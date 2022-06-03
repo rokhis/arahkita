@@ -1,7 +1,7 @@
 @extends('layout.app', [
     'namePage' => 'Data Wisata',
 ])
-@section('title', 'Arah Kita | edit wisata')
+@section('title', 'Arah Kita | Tambah wisata')
 @section('content')
     <div class="panel-header panel-header-sm">
     </div>

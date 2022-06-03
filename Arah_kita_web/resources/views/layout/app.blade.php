@@ -77,7 +77,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: "You won't be able to revert this!",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -99,7 +99,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: "You won't be able to revert this!",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -121,7 +121,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: "You won't be able to revert this!",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -143,7 +143,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: "You won't be able to revert this!",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -165,7 +165,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: "You won't be able to revert this!",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -212,9 +212,10 @@
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
-
         })
     </script>
+
+
 </body>
 
 </html>

@@ -58,3 +58,5 @@ Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('dele
 // Route::post('/scan', [ScanController::class, 'validasiQrcode'])->name('validasiQrcode')->middleware('guest');
 
 Route::resource('/scan', PengelolaScanController::class)->except('show')->middleware('auth');
+
+Route::get('/grafik', [DashboardController::class, 'grafik'])->middleware('auth');
