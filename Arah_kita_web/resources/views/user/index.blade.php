@@ -37,7 +37,6 @@
                                     <thead class=" text-primary">
                                         <th scope="col">No.</th>
                                         <th scope="col">Nama User</th>
-
                                         <th scope="col">No Hp</th>
                                         <th scope="col">Email</th>
                                         <th class="text-right" scope="col">action</th>
@@ -48,7 +47,6 @@
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
                                                 <td>{{ $user->nama }}</td>
-
                                                 <td>{{ $user->no_hp }}</td>
                                                 <td>{{ $user->email }}</td>
 

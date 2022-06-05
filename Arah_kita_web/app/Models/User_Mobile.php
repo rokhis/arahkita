@@ -15,7 +15,6 @@ class User_Mobile extends Model
 
     protected $fillable = [
         'nama',
-        'username',
         'jenis_kelamin',
         'no_hp',
         'tgl_lahir',
@@ -23,4 +22,15 @@ class User_Mobile extends Model
         'password,'
 
     ];
+
+    public function transaksi()
+    {
+
+        return $this->hasMany(Transaksi::class);
+    }
+    public function tiket()
+    {
+
+        return $this->hasMany(Tiket::class);
+    }
 }
