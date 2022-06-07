@@ -39,6 +39,7 @@
                                             <option value="{{ $wst->kategori }}">{{ $wst->kategori }}</option>
                                             <option value="Gunung">Gunung</option>
                                             <option value="Pantai">Pantai</option>
+                                            <option value="Air Terjun">Air Terjun</option>
 
                                         </select>
 
@@ -78,44 +79,43 @@
                             <div class="row">
                                 <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 1</label>
-                                    <div class=" form-control">
-                                        <input class="col  @error('gambar_1') is-invalid @enderror" name="gambar_1"
-                                            type="file" id="formFile">
-                                        @error('gambar_1')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+
+                                    <input class="form-control  @error('gambar_1') is-invalid @enderror" name="gambar_1"
+                                        type="file" id="formFile">
+                                    @error('gambar_1')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 2</label>
-                                    <div class=" form-control">
-                                        <input class="col  @error('gambar_2') is-invalid @enderror" name="gambar_2"
-                                            type="file" id="formFile">
-                                        @error('gambar_2')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+                                    <input class="form-control  @error('gambar_2') is-invalid @enderror" name="gambar_2"
+                                        type="file" id="formFile">
+                                    @error('gambar_2')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 pr-1 mb-2">
                                     <label for="formFile" class="form-label">Gambar 3</label>
-                                    <div class=" form-control">
-                                        <input class="col  @error('gambar_3') is-invalid @enderror" name="gambar_3"
-                                            type="file" id="formFile">
-                                        @error('gambar_3')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+
+                                    <input class="form-control  @error('gambar_3') is-invalid @enderror" name="gambar_3"
+                                        type="file" id="formFile">
+                                    @error('gambar_3')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+
                                 </div>
                             </div>
 

@@ -13,6 +13,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $jumlah_transaksi = Transaksi::all()->count();
+        $jumlah_wisata = Wisata::all()->count();
+        $jumlah_user = User_Mobile::all()->count();
         $transaksi = Transaksi::select(DB::raw("COUNT(*) as count"))
             ->whereYear("created_at", date('Y'))
             ->GroupBy(DB::raw("Month(created_at)"))
@@ -22,7 +25,7 @@ class DashboardController extends Controller
         //     ->GroupBy(DB::raw("Month(created_at"))
         //     ->pluck('bulan');
         // dd($bulan);
-        return view('dashboard.index', compact('transaksi'));
+        return view('dashboard.index', compact('transaksi', 'jumlah_transaksi', 'jumlah_wisata', 'jumlah_user'));
     }
 
 
