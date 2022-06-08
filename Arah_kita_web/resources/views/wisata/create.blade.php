@@ -38,6 +38,7 @@
                                             <option value="Gunung">Gunung</option>
                                             <option value="Pantai">Pantai</option>
                                             <option value="Air Terjun">Air Terjun</option>
+                                            <option value="Taman Nasional">Taman Nasional</option>
                                         </select>
                                     </div>
                                 </div>

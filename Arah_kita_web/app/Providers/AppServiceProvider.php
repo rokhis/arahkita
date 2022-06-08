@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('superadmin', function (User $user) {
-            return $user->username === 'superadmin';
+            return $user->email === 'superadmin@gmail.com';
         });
     }
 }

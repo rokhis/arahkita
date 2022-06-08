@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('user_mobiles', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('jenis_kelamin');
             $table->string('tgl_lahir');
             $table->string('no_hp');
             $table->string('email');
