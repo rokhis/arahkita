@@ -16,20 +16,34 @@
 
                             </div>
                             <div class="col-md-5">
-                                <form action="/transaksi" method="GET">
-                                    <div class="input-group no-border p-4">
-                                        <input type="date" value="{{ $request->search }}" class="form-control"
-                                            placeholder="Search..." name="search">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                                <button class="border-0 " type="submit"> <i
-                                                        class="now-ui-icons ui-1_zoom-bold"></i></button>
+                                <div class="row">
+                                    <form action="/transaksi" method="GET">
+                                        <div class="input-group no-border ">
+                                            <input type="date" value="{{ $request->search_tgl }}" class="form-control"
+                                                placeholder="Search..." name="search_tgl">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <button class="border-0 " type="submit"> <i
+                                                            class="now-ui-icons ui-1_zoom-bold"></i></button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+                                <div class="row">
+                                    <form action="/transaksi" method="GET">
+                                        <div class="input-group no-border ">
+                                            <input type="text" value="{{ $request->search }}" class="form-control"
+                                                placeholder="Search..." name="search">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -40,6 +54,7 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th scope="col">No</th>
+                                        <th scope="col">Kode Boking</th>
                                         <th scope="col">Tanggal Transaksi</th>
                                         <th scope="col">Nama Pembeli</th>
                                         <th scope="col">Nama Wisata</th>
@@ -53,6 +68,7 @@
                                         @foreach ($transaksi as $tsr)
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
+                                                <td>{{ $tsr->kode_transaksi }}</td>
                                                 <td>{{ $tsr->created_at }}</td>
                                                 <td>{{ $tsr->user_mobile->nama }}</td>
                                                 <td>{{ $tsr->wisata->nama_wisata }}</td>

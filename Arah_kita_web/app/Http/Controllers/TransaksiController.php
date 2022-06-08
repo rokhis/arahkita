@@ -18,8 +18,12 @@ class TransaksiController extends Controller
     public function index(Request $request)
     {
         $this->authorize('admin');
+        if ($request->has('search_tgl')) {
+            $transaksi = Transaksi::where('created_at', 'like', '%' . $request->search_tgl . '%')
+                ->get();
+        }
         if ($request->has('search')) {
-            $transaksi = Transaksi::where('created_at', 'like', '%' . $request->search . '%')
+            $transaksi = Transaksi::where('kode_transaksi', 'like', '%' . $request->search . '%')
                 ->get();
         } else {
             $transaksi = Transaksi::all();
